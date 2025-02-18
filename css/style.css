@@ -6,3 +6,91 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+
+:root {
+  --Light-green: #7ed56f;
+  --Medium-green: #55c57a;
+  --Dark-green: #28b485;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #777;
+  font-weight: 400;
+  padding: 30px;
+}
+
+.header {
+  height: 95vh;
+  background-image: linear-gradient(
+      to right bottom,
+      hsla(111, 55%, 64%, 0.805),
+      hsla(160, 64%, 43%, 0.805)
+    ),
+    url(../img/hero.jpg);
+  background-size: cover;
+  background-position: top;
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+  position: relative;
+}
+
+.logo-box {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+.logo {
+  height: 35px;
+}
+
+.text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.heading-primmary {
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.heading-primmary-main {
+  display: block;
+  font-weight: 400px;
+  font-size: 60px;
+  letter-spacing: 35px;
+  animation: toRight 3s;
+}
+
+.heading-primmary-sub {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 17.4px;
+}
+
+@keyframes toRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  80%{
+    
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
