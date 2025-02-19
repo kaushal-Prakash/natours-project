@@ -57,11 +57,14 @@ body {
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 .heading-primmary {
   color: #fff;
   text-transform: uppercase;
+  backface-visibility: hidden; /* to fix shakiness */
+  margin-bottom: 60px;
 }
 
 .heading-primmary-main {
@@ -69,7 +72,7 @@ body {
   font-weight: 400px;
   font-size: 60px;
   letter-spacing: 35px;
-  animation: toRight 3s;
+  animation: toRight 1s ease-out;
 }
 
 .heading-primmary-sub {
@@ -77,6 +80,7 @@ body {
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 17.4px;
+  animation: toLeft 1s ease-out;
 }
 
 @keyframes toRight {
@@ -85,12 +89,53 @@ body {
     transform: translateX(-100px);
   }
 
-  80%{
-    
+  80% {
+    transform: translateX(10px);
   }
 
   100% {
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+@keyframes toLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  80% {
+    transform: translateX(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 40px;
+  display: inline-block;
+  transition: all 0.2s;
+  border-radius: 100px;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
+  background-color: #fff;
+  color: #777;
 }
