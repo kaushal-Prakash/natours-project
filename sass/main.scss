@@ -7,13 +7,12 @@ Dark green: #28b485
 
 */
 
-
 $color-primary: #7ed56f;
 $color-primary-light: #55c57a;
 $color-primary-dark: #28b485;
 $color-grey-dark: #777;
 $color-white: #fff;
-
+$color-black: #000;
 
 html {
   font-size: 62.5%; /*  not in pixel becoz it overrites browser setting so if user want to inrese font size via browser they cant */
@@ -32,15 +31,15 @@ body {
   line-height: 1.7;
   color: $color-grey-dark;
   font-weight: 400;
-  padding: 3rem;
+  padding: 2.5rem;
   box-sizing: border-box;
 }
 
 .header {
-  height: 95vh;
+  height: 92vh;
   background-image: linear-gradient(
       to right bottom,
-      rgba($color-primary-light,0.8),
+      rgba($color-primary-light, 0.8),
       rgba($color-primary-dark, 0.8)
     ),
     url(../img/hero.jpg);
@@ -48,24 +47,24 @@ body {
   background-position: top;
   clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
   position: relative;
-}
 
-.header__logo-box {
-  position: absolute;
-  top: 4rem;
-  left: 4rem;
-}
+  &__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+  }
 
-.header__logo {
-  height: 3.5rem;
-}
+  &__logo {
+    height: 3.5rem;
+  }
 
-.header__text-box {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
+  &__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
 }
 
 .heading-primmary {
@@ -73,22 +72,22 @@ body {
   text-transform: uppercase;
   backface-visibility: hidden; /* to fix shakiness */
   margin-bottom: 6rem;
-}
 
-.heading-primmary--main {
-  display: block;
-  font-weight: 400;
-  font-size: 6rem;
-  letter-spacing: 3.5rem;
-  animation: toRight 1s ease-out;
-}
+  &--main {
+    display: block;
+    font-weight: 400;
+    font-size: 6rem;
+    letter-spacing: 3.5rem;
+    animation: toRight 1s ease-out;
+  }
 
-.heading-primmary--sub {
-  display: block;
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 1.75rem;
-  animation: toLeft 1s ease-out;
+  &--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    animation: toLeft 1s ease-out;
+  }
 }
 
 @keyframes toRight {
@@ -123,53 +122,60 @@ body {
   }
 }
 
-.btn:link,
-.btn:visited {
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 1.5rem 4rem;
-  display: inline-block;
-  transition: all 0.2s;
-  border-radius: 10rem;
-  position: relative;
-  font-size: 1.6rem;
-}
+.btn {
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    transition: all 0.2s;
+    border-radius: 10rem;
+    position: relative;
+    font-size: 1.6rem;
+  }
 
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
-}
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
 
-.btn:active {
-  transform: translateY(-1px);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
-}
+    &::after {
+      transform: scale(1.4, 1.6);
+      opacity: 0;
+    }
+  }
 
-.btn--white {
-  background-color: $color-white;
-  color: $color-grey-dark;
-}
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  }
 
-.btn::after {
-  content: "";
-  display: inline-block;
-  height: 100%;
-  width: 100%;
-  border-radius: 100px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  transition: all 0.4s;
-}
+  &--white {
+    background-color: $color-white;
+    color: $color-grey-dark;
+  }
 
-.btn--white::after {
-  background-color: #fff;
-}
+  &:after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+  }
 
-.btn:hover::after {
-  transform: scale(1.4, 1.6);
-  opacity: 0;
+  &--white::after {
+    background-color: $color-white;
+  }
+
+  &--animated {
+    animation: toDownBtn 0.5s ease-out 0.75s;
+    animation-fill-mode: backwards;
+  }
 }
 
 @keyframes toDownBtn {
@@ -183,9 +189,3 @@ body {
     transform: translateY(0);
   }
 }
-
-.btn--animated {
-  animation: toDownBtn 0.5s ease-out 0.75s;
-  animation-fill-mode: backwards;
-}
-
