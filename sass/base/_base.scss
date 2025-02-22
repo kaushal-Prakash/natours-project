@@ -1,0 +1,11 @@
+html {
+  // this define what 1rem is
+  font-size: 62.5%; /*  not in pixel becoz it overrites browser setting so if user want to inrese font size via browser they cant*/
+}
+
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
